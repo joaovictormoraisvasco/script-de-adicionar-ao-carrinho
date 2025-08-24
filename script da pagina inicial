@@ -1,48 +1,79 @@
 const BotoesAdicionar = document.querySelectorAll(".adicionar");
 const remover = document.querySelectorAll(".remover");
 const badge = document.getElementById("badge-carrinho");
+const sidebarCarrinho = document.getElementById("sidebar-carrinho");
+const abrirCarrinho = document.getElementById("abrir-carrinho");
+const fecharCarrinho = document.getElementById("fechar-carrinho");
+const listaCarrinho = document.getElementById("lista-carrinho");
 
-// Pega o carrinho do localStorage ou cria um array vazio
+// Carrinho no localStorage
 let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
 
 function atualizarBadge() {
     badge.textContent = carrinho.length;
-    badge.style.display = carrinho.length > 0 ? "block" : "none";
+    badge.style.display = carrinho.length > 0 ? "inline-block" : "none";
+    atualizarListaCarrinho();
 }
 
-BotoesAdicionar.forEach((botao, index) => {
+function atualizarListaCarrinho() {
+    listaCarrinho.innerHTML = "";
+
+    if (carrinho.length === 0) {
+        listaCarrinho.innerHTML = "<li>O carrinho está vazio.</li>";
+        return;
+    }
+
+    carrinho.forEach(item => {
+        const li = document.createElement("li");
+        li.innerHTML = `
+            <img src="${item.imagem}" alt="${item.nome}">
+            <div>
+                <strong>${item.nome}</strong><br>
+                R$ ${item.preco.toFixed(2).replace('.', ',')}
+            </div>
+        `;
+        listaCarrinho.appendChild(li);
+    });
+}
+
+// Adicionar produto
+BotoesAdicionar.forEach(botao => {
     botao.addEventListener("click", () => {
-        // Pega o nome e preço do produto baseado na posição do botão
         const produto = botao.parentElement;
         const nome = produto.querySelector("h2").textContent;
         const precoTexto = produto.querySelector("p").textContent.replace("R$ ", "").replace(",", ".");
         const preco = parseFloat(precoTexto);
         const imagem = produto.querySelector("img").src;
 
-        // Adiciona ao carrinho
         carrinho.push({ nome, preco, imagem });
         localStorage.setItem("carrinho", JSON.stringify(carrinho));
-
-       
         atualizarBadge();
     });
 });
 
-remover.forEach((botao, index) => {
+// Remover produto
+remover.forEach(botao => {
     botao.addEventListener("click", () => {
         const produto = botao.parentElement;
         const nome = produto.querySelector("h2").textContent;
 
-        // Remove o primeiro item com esse nome
-        const pos = carrinho.findIndex(item => item.nome === nome);
-        if (pos > -1) {
-            carrinho.splice(pos, 1);
+        const index = carrinho.findIndex(item => item.nome === nome);
+        if (index !== -1) {
+            carrinho.splice(index, 1);
             localStorage.setItem("carrinho", JSON.stringify(carrinho));
-          
             atualizarBadge();
         }
     });
 });
 
-// Inicializa o badge quando a página carrega
+// Mostrar/esconder barra lateral
+abrirCarrinho.addEventListener("click", () => {
+    sidebarCarrinho.classList.add("ativo");
+});
+
+fecharCarrinho.addEventListener("click", () => {
+    sidebarCarrinho.classList.remove("ativo");
+});
+
+// Inicializa
 atualizarBadge();
