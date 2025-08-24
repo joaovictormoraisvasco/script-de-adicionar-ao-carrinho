@@ -1,0 +1,46 @@
+#sidebar-carrinho {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 350px;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.3);
+    padding: 20px;
+    transition: right 0.3s ease-in-out;
+    z-index: 999;
+    overflow-y: auto;
+}
+
+#sidebar-carrinho.ativo {
+    right: 0;
+}
+
+#fechar-carrinho {
+    background: none;
+    border: none;
+    font-size: 20px;
+    float: right;
+    cursor: pointer;
+}
+
+#lista-carrinho {
+    margin-top: 20px;
+    list-style: none;
+    padding: 0;
+}
+
+#lista-carrinho li {
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+#lista-carrinho img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin-right: 10px;
+}
