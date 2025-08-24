@@ -18,10 +18,17 @@ function atualizarBadge() {
 function atualizarListaCarrinho() {
     listaCarrinho.innerHTML = "";
 
+    const footer = document.getElementById("carrinho-footer");
+    const totalEl = document.getElementById("total-carrinho");
+    const botaoPagar = document.getElementById("botao-pagar");
+
     if (carrinho.length === 0) {
         listaCarrinho.innerHTML = "<li>O carrinho está vazio.</li>";
+        footer.style.display = "none";
         return;
     }
+
+    let total = 0;
 
     carrinho.forEach(item => {
         const li = document.createElement("li");
@@ -33,8 +40,13 @@ function atualizarListaCarrinho() {
             </div>
         `;
         listaCarrinho.appendChild(li);
+        total += item.preco;
     });
+
+    totalEl.textContent = `Total: R$ ${total.toFixed(2).replace('.', ',')}`;
+    footer.style.display = "block";
 }
+
 
 // Adicionar produto
 BotoesAdicionar.forEach(botao => {
