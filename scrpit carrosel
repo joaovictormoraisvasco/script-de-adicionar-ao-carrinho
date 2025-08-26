@@ -1,0 +1,29 @@
+  const faixa = document.querySelector('.carrossel-faixa');
+    const itens = document.querySelectorAll('.carrossel-item');
+    const botaoAnterior = document.querySelector('.anterior');
+    const botaoProximo = document.querySelector('.proximo');
+
+    let indiceAtual = 0;
+
+    function atualizarCarrossel() {
+      const largura = itens[0].clientWidth;
+      faixa.style.transform = `translateX(-${indiceAtual * largura}px)`;
+    }
+
+    botaoProximo.addEventListener('click', () => {
+      indiceAtual = (indiceAtual + 1) % itens.length;
+      atualizarCarrossel();
+    });
+
+    botaoAnterior.addEventListener('click', () => {
+      indiceAtual = (indiceAtual - 1 + itens.length) % itens.length;
+      atualizarCarrossel();
+    });
+
+    // Troca automática a cada 4 segundos
+    setInterval(() => {
+      indiceAtual = (indiceAtual + 1) % itens.length;
+      atualizarCarrossel();
+    }, );
+
+    window.addEventListener('resize', atualizarCarrossel)
