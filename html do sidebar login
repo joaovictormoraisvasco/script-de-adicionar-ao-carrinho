@@ -1,20 +1,51 @@
+ <div id="sidebar-carrinho">
+    <button id="fechar-carrinho"><i class="fas fa-times"></i></button>
+    <h2>Seu Carrinho</h2>
+    <ul id="lista-carrinho"></ul>
+
+    <!-- Área do total e botão de pagamento -->
+    <div id="carrinho-footer">
+      <p id="total-carrinho">Total: R$ 0,00</p>
+      <button id="botao-pagar">Pagar</button>
+      <button id="botao-resetar">resetar carrinho</button>
+    </div>
+  </div>
+
 <!-- Sidebar do Login -->
 <div id="sidebar-login">
   <button id="fechar-login"><i class="fas fa-times"></i></button>
-  <h2>Área de Login</h2>
-  <form>
-    <label for="email">E-mail</label>
-    <input type="email" id="email" placeholder="Digite seu e-mail">
+  <form action="/enviar" method="post" class="formulario">
+    <font face="verdana" color="white">
+        <h1 class="titulo"><b><i class="fas fa-user">efetuar Login</i></b></h1>
+    </font>
+    <hr>
 
-    <label for="senha">Senha</label>
-    <input type="password" id="senha" placeholder="Digite sua senha">
+    <h3 class="h3">Escolha uma opção para entrar:</h3>
+    <div class="codigo">
+       <button class="botao-codigo"> Receber por código</button>
+    </div>
+      
+    <button class="gmail">
+      <i class="fab fa-google"></i> Entrar com <b>Google</b>
+   </button>
+   
+   <button class="face">
+      <i class="fab fa-facebook-f"></i> Entrar com <b>Facebook</b>
+   </button>
+   
+  
+    <hr class="linha-meio">
 
-    <button type="submit" class="botao">Entrar</button>
-  </form>
+    <h3 class="h3">Entrar com email e senha:</h3>
+    
+    <label for="nome"></label>
+    <input class="gmail-1" placeholder="Ex: exemplos@gmail.com" type="text" id="nome" name="nome" required>
+     
+    <label for="email"></label>
+    <input class="gmail-1" placeholder="Adicione sua senha" type="email" id="email" name="email" required>
+    <hr>
+    <p class="esqueci-senha">Esqueci minha senha</p>
+    <button type="submit">Entrar</button>
+    <p class="cadastre-se">Não tem uma conta? cadastre-se</p>
+</form>
 </div>
-
-<!-- buton login-->
-   <button id="abrir-login" class="botao">
-        <i class="fa-solid fa-user"></i>
-        <span>Login</span>
-      </button>
