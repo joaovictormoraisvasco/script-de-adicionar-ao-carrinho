@@ -1,0 +1,185 @@
+#sidebar-login {
+  position: fixed;
+  top: 0;
+  right: -400px; /* começa escondido */
+  width: 350px;
+  height: 100%;
+  background: #0d1117; /* fundo escuro */
+  box-shadow: -2px 0 8px rgba(0,0,0,0.5);
+  padding: 20px;
+  transition: right 0.3s ease;
+  z-index: 1000;
+  color: #f0f0f0; /* texto claro */
+  overflow-y: auto;
+}
+
+#sidebar-login.ativo {
+  right: 0;
+}
+
+#sidebar-login h2 {
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+  color: #fff;
+  text-align: center;
+}
+
+/* Formulário dentro da sidebar */
+#sidebar-login form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+#sidebar-login label {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #ddd;
+}
+
+#sidebar-login input,
+#sidebar-login textarea,
+#sidebar-login select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #444;
+  border-radius: 8px;
+  background: #161b22;
+  color: #fff;
+  font-size: 14px;
+  outline: none;
+}
+
+#sidebar-login input:focus {
+  border-color: #3b82f6;
+}
+
+/* Botão principal */
+#sidebar-login button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  background: #3b82f6;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+#sidebar-login button[type="submit"]:hover {
+  background: #2563eb;
+}
+
+/* Botão de fechar */
+#fechar-login {
+  background: none;
+  border: none;
+  font-size: 22px;
+  float: right;
+  cursor: pointer;
+  color: #fff;
+}
+#fechar-login:hover {
+  color: #3b82f6;
+}
+#fechar-login i {
+  margin-top: 19px;
+}
+
+/* Links extras */
+#sidebar-login .esqueci-senha {
+  text-align: right;
+  margin-top: 5px;
+  font-size: 12px;
+  color: #9ca3af;
+  cursor: pointer;
+}
+#sidebar-login .esqueci-senha:hover {
+  text-decoration: underline;
+  color: #fff;
+}
+
+#sidebar-login .cadastre-se {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 15px;
+  color: #9ca3af;
+}
+#sidebar-login .cadastre-se a {
+  color: #3b82f6;
+  font-weight: bold;
+  text-decoration: none;
+}
+#sidebar-login .cadastre-se a:hover {
+  text-decoration: underline;
+}
+
+/* Botões sociais */
+#sidebar-login .gmail,
+#sidebar-login .face {
+  text-align: center;
+  margin-top: 12px;
+  background-color: #161b22;
+  color: #f0f0f0;
+  border: 1px solid #333;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s;
+}
+
+#sidebar-login .gmail:hover {
+  background-color: #db4437; /* Google vermelho */
+  color: #fff;
+  border: none;
+}
+
+#sidebar-login .face:hover {
+  background-color: #3b5998; /* Azul Facebook */
+  color: #fff;
+  border: none;
+}
+
+.fa-google,
+.fa-facebook-f {
+  margin-right: 10px;
+}
+.botao-codigo{
+  width: 100%;
+  padding: 12px;
+  background: #3b82f6;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.botao-codigo:hover {
+  background: #2563eb;
+}
+.titulo{
+  
+  text-align: center;
+  margin-top: 20px;
+  font-size: 24px;
+  color: #fff;
+}
+.titulo i{
+  width: 100%;
+  color: #3b82f6;
+  display: flex;
+  justify-content: space-around;
+  
+  }
+hr{
+  border: 0;
+  height: 1px;
+  background: #333;
+  margin: 20px 0;
+}
