@@ -1,17 +1,3 @@
- <div id="sidebar-carrinho">
-    <button id="fechar-carrinho"><i class="fas fa-times"></i></button>
-    <h2>Seu Carrinho</h2>
-    <ul id="lista-carrinho"></ul>
-
-    <!-- Área do total e botão de pagamento -->
-    <div id="carrinho-footer">
-      <p id="total-carrinho">Total: R$ 0,00</p>
-      <button id="botao-pagar">Pagar</button>
-      <button id="botao-resetar">resetar carrinho</button>
-    </div>
-  </div>
-
-<!-- Sidebar do Login -->
 <div id="sidebar-login">
   <button id="fechar-login"><i class="fas fa-times"></i></button>
   <form action="/enviar" method="post" class="formulario">
