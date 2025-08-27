@@ -9,6 +9,8 @@ const listaCarrinho = document.getElementById("lista-carrinho");
 // Carrinho no localStorage
 let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
 
+atualizarBadge();
+
 function atualizarBadge() {
     badge.textContent = carrinho.length;
     badge.style.display = carrinho.length > 0 ? "inline-block" : "none";
@@ -20,17 +22,21 @@ function atualizarListaCarrinho() {
 
     const footer = document.getElementById("carrinho-footer");
     const totalEl = document.getElementById("total-carrinho");
-    const botaoPagar = document.getElementById("botao-pagar");
 
     if (carrinho.length === 0) {
-        listaCarrinho.innerHTML = "<li>O carrinho está vazio.</li>";
+        listaCarrinho.innerHTML = `
+        <li class="carrinho-vazio">
+            <i class="fa-solid fa-cart-shopping"></i>
+            O carrinho está vazio.
+        </li>
+    `;
         footer.style.display = "none";
         return;
     }
 
     let total = 0;
 
-    carrinho.forEach(item => {
+    carrinho.forEach((item, index) => {
         const li = document.createElement("li");
         li.innerHTML = `
             <img src="${item.imagem}" alt="${item.nome}">
@@ -38,7 +44,16 @@ function atualizarListaCarrinho() {
                 <strong>${item.nome}</strong><br>
                 R$ ${item.preco.toFixed(2).replace('.', ',')}
             </div>
+            <button class="remover-item">Remover</button>
         `;
+
+        // evento do botão remover dentro do carrinho
+        li.querySelector(".remover-item").addEventListener("click", () => {
+            carrinho.splice(index, 1); 
+            localStorage.setItem("carrinho", JSON.stringify(carrinho));
+            atualizarBadge(); 
+        });
+
         listaCarrinho.appendChild(li);
         total += item.preco;
     });
@@ -86,6 +101,26 @@ abrirCarrinho.addEventListener("click", () => {
 fecharCarrinho.addEventListener("click", () => {
     sidebarCarrinho.classList.remove("ativo");
 });
+//resetar carrinho//
 
-// Inicializa
-atualizarBadge();
+document.getElementById("botao-resetar").addEventListener("click", () => [
+    carrinho = [],
+    localStorage.setItem("carrinho", JSON.stringify(carrinho)),
+    atualizarBadge(),
+]
+);
+
+//sidebar login//
+
+const abrirLogin = document.getElementById("abrir-login");
+const FecharLogin = document.getElementById("fechar-login");
+const sidebarLogin = document.getElementById("sidebar-login");
+
+//abrir sidebar//
+abrirLogin.addEventListener("click", () => {
+    sidebarLogin.classList.add("ativo");
+});
+FecharLogin.addEventListener("click", () => {
+    sidebarLogin.classList.remove("ativo");
+});
+
