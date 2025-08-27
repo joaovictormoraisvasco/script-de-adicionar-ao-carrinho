@@ -4,6 +4,12 @@
     <h2>Seu Carrinho</h2>
     <ul id="lista-carrinho"></ul>
 
+ <!-- Botão para abrir carrinho -->
+      <button id="abrir-carrinho" class="botao">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span id="badge-carrinho" class="badge">0</span>
+      </button>
+
     <!-- Área do total e botão de pagamento -->
     <div id="carrinho-footer">
         <p id="total-carrinho">Total: R$ 0,00</p>
