@@ -17,7 +17,7 @@
     right: -400px;
     width: 350px;
     height: 100%;
-    background-color: #fff;
+    background-color: #0b1220;
     box-shadow: -2px 0 5px rgba(0,0,0,0.3);
     padding: 20px;
     transition: right 0.3s ease-in-out;
@@ -45,11 +45,22 @@
 
 #lista-carrinho li {
     margin-bottom: 15px;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid black;
     padding-bottom: 10px;
     display: flex;
     align-items: center;
 }
+#lista-carrinho li.carrinho-vazio {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-style: italic;
+  color: #eeeeee;
+  padding: 10px;
+  opacity: 50%;
+}
+
 
 #lista-carrinho img {
     width: 50px;
@@ -59,7 +70,7 @@
 }
 #carrinho-footer {
     margin-top: 20px;
-    border-top: 1px solid #ccc;
+    border-top: 1px solid black;
     padding-top: 15px;
     text-align: center;
 }
@@ -87,3 +98,23 @@
 #carrinho-footer {
     display: none;
 }
+#botao-resetar{
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.remover-item{
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: auto;
+}
+/* Sidebar do Login */
